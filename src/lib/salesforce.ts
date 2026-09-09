@@ -25,19 +25,23 @@ export const SF = {
    *               src/components/agent/CustomSnippet.tsx
    * "demo"      — built-in local assistant, no Salesforce connection
    */
-  mode: (env("NEXT_PUBLIC_SF_MODE") || "demo") as AgentMode,
+  mode: (env("NEXT_PUBLIC_SF_MODE") || "messaging") as AgentMode,
 
   /** 15 or 18 character Org ID — Setup → Company Information */
-  orgId: env("NEXT_PUBLIC_SF_ORG_ID"),
+  orgId: env("NEXT_PUBLIC_SF_ORG_ID") || "00Dg700000E6Kjx",
 
   /** API name of the Embedded Service deployment */
-  eswConfigDevName: env("NEXT_PUBLIC_SF_ESW_CONFIG_NAME"),
+  eswConfigDevName: env("NEXT_PUBLIC_SF_ESW_CONFIG_NAME") || "Veltrix_Portal",
 
   /** Experience Cloud / ESW site endpoint, e.g. https://acme.my.site.com/ESWMyDeployment */
-  siteUrl: env("NEXT_PUBLIC_SF_SITE_URL"),
+  siteUrl:
+    env("NEXT_PUBLIC_SF_SITE_URL") ||
+    "https://orgfarm-50447061ca-dev-ed.develop.my.site.com/ESWVeltrixPortal1788972138756",
 
   /** SCRT2 URL, e.g. https://acme.my.salesforce-scrt.com */
-  scrt2Url: env("NEXT_PUBLIC_SF_SCRT2_URL"),
+  scrt2Url:
+    env("NEXT_PUBLIC_SF_SCRT2_URL") ||
+    "https://orgfarm-50447061ca-dev-ed.develop.my.salesforce-scrt.com",
 
   /** Optional override for the bootstrap script; defaults to <siteUrl>/assets/js/bootstrap.min.js */
   bootstrapUrl: env("NEXT_PUBLIC_SF_BOOTSTRAP_URL"),
